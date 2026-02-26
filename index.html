@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fraction Fun!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== MENU ===== -->
+<div id="page-menu" class="page active">
+  <div class="menu-card">
+    <div class="menu-logo">🍕</div>
+    <h1>Fraction Fun!</h1>
+    <p class="menu-sub">Let's learn about <strong>½</strong> and <strong>¼</strong>!</p>
+    <div class="menu-buttons">
+      <button class="menu-btn btn-opt1" onclick="startOption1()">
+        <span class="btn-icon">🎯</span>
+        <div>
+          <span class="btn-label">Teacher Bea's Order</span>
+        </div>
+      </button>
+      <button class="menu-btn btn-opt2" onclick="startOption2()">
+        <span class="btn-icon">✏️</span>
+        <div>
+          <span class="btn-label">Trace &amp; Learn</span>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div class="bg-bubbles">
+    <div class="bubble">½</div><div class="bubble">¼</div>
+    <div class="bubble">½</div><div class="bubble">¼</div>
+    <div class="bubble">½</div>
+  </div>
+</div>
+
+<!-- ===== OPTION 1 ===== -->
+<div id="page-opt1" class="page">
+  <div id="game-container">
+    <header>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <button class="back-btn-orig" onclick="goMenu()">← Menu</button>
+        <h1>🍕 Teacher Bea's Order</h1>
+      </div>
+      <div class="score-box">Score: <span id="score">0</span></div>
+    </header>
+    <div id="customer-area">
+      <div class="wall-pattern"></div>
+      <div id="speech-bubble">Loading...</div>
+      <div id="character-container">
+        <canvas id="character-canvas" width="260" height="350"></canvas>
+      </div>
+    </div>
+    <div id="counter-area"></div>
+  </div>
+  <div id="feedback-overlay">
+    <div id="feedback-msg">
+      <h2 id="msg-title">Awesome!</h2>
+      <p id="msg-text">You got it right!</p>
+      <button onclick="nextLevel()">Next Order</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== OPTION 2 — Q1 & Q2 (Trace + Pick) ===== -->
+<div id="page-opt2" class="page">
+  <div class="game-header">
+    <button class="back-btn" onclick="goMenu()">← Menu</button>
+    <div class="progress-wrap">
+      <span id="opt2-counter">Question 1 of 3</span>
+      <div class="progress-bar"><div id="opt2-progress" class="progress-fill"></div></div>
+    </div>
+    <div class="score-badge">⭐ <span id="opt2-score">0</span></div>
+  </div>
+
+  <div class="opt2-content">
+    <div id="opt2-question" class="question-box"></div>
+
+    <!-- Circles (shown in Q1 & Q2) -->
+    <div class="circles-row" id="circles-row">
+      <div class="circle-wrap">
+        
+        <div class="canvas-container" id="container-half">
+          <canvas id="circle-half" width="200" height="200"></canvas>
+          <div class="cursor-glow" id="glow-half"></div>
+        </div>
+        <div class="trace-hint" id="hint-half">✏️ Trace the dashed line!</div>
+      </div>
+      <div class="circle-wrap">
+        
+        <div class="canvas-container" id="container-quarter">
+          <canvas id="circle-quarter" width="200" height="200"></canvas>
+          <div class="cursor-glow" id="glow-quarter"></div>
+        </div>
+        <div class="trace-hint" id="hint-quarter">✏️ Trace the dashed lines!</div>
+      </div>
+    </div>
+
+    <!-- Q1/Q2 answer buttons -->
+    <div class="opt2-buttons" id="opt2-btns">
+      <button class="fraction-btn" id="btn-half" onclick="opt2Answer('half')" disabled>
+        <span class="frac-display">½</span>
+        <span class="frac-label">One Half</span>
+      </button>
+      <button class="fraction-btn" id="btn-quarter" onclick="opt2Answer('quarter')" disabled>
+        <span class="frac-display">¼</span>
+        <span class="frac-label">One Fourth</span>
+      </button>
+    </div>
+
+    <!-- Q3: Connect matching canvas -->
+    <div id="q3-area" style="display:none; width:100%; max-width:660px;">
+      <canvas id="q3-canvas"></canvas>
+      <p class="trace-hint" id="q3-hint" style="text-align:center; margin-top:8px;">Drag a line from each circle to its matching fraction!</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== LEVEL COMPLETE ===== -->
+<div id="page-complete" class="page">
+  <div class="complete-card">
+    <div class="complete-stars">⭐⭐⭐</div>
+    <h2 class="complete-title">Level Complete!</h2>
+    <p class="complete-sub" id="complete-msg"></p>
+    <div class="confetti-area" id="confetti-area"></div>
+    <button class="menu-btn btn-opt1" style="margin-top:24px;" onclick="goMenu()">🏠 Back to Menu</button>
+  </div>
+</div>
+
+<!-- ===== GLOBAL FEEDBACK ===== -->
+<div id="g-feedback" class="g-feedback hidden">
+  <div class="g-feedback-box">
+    <div id="g-feedback-icon"></div>
+    <div id="g-feedback-text"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
