@@ -161,7 +161,7 @@ h1 { font-family:'Fredoka One',cursive; margin:0; font-size:1.5rem; text-shadow:
 @media(max-width:768px){
   h1{font-size:1.2rem} .score-box{font-size:1rem;padding:4px 10px}
   #character-container{width:200px;height:240px}
-  #speech-bubble{font-size:1rem;padding:15px}
+  #speech-bubble{font-size:1.5rem;padding:15px}
   #page-opt1 canvas{width:190px!important;height:230px!important}
   #counter-area{padding:10px;gap:10px}
 }
@@ -308,3 +308,4 @@ h1 { font-family:'Fredoka One',cursive; margin:0; font-size:1.5rem; text-shadow:
   0%{transform:translateY(0) scale(1);opacity:1} 100%{transform:translateY(-90px) scale(0);opacity:0}
 
 }
+
